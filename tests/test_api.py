@@ -5,6 +5,7 @@ import logging
 
 os.environ['PG_USER'] = 'testuser'
 os.environ['PG_PWD'] = 'testpassword'
+os.environ['DB_HOST'] = '0.0.0.0:5432'
 
 from app import init_app
 

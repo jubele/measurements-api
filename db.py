@@ -6,6 +6,7 @@ import logging
 MAX_RETRIES = 5
 RETRY_DELAY = 5
 
+DB_HOST = os.getenv('DB_HOST', 'db')
 
 async def init_db(app):
     retries = 0
@@ -13,8 +14,8 @@ async def init_db(app):
     PG_PWD = os.getenv('PG_PWD')
     while retries < MAX_RETRIES:
         try:
-            logging.warning(f'Connecting with {PG_USER}:{PG_PWD} ....')
-            app['db'] = await asyncpg.create_pool(dsn=f'postgresql://{PG_USER}:{PG_PWD}@0.0.0.0:5432/sensor_db',
+            logging.info(f'Connecting db ...')
+            app['db'] = await asyncpg.create_pool(dsn=f'postgresql://{PG_USER}:{PG_PWD}@{DB_HOST}/sensor_db',
                                                   min_size=1,
                                                   max_size=20)
             logging.info("Connected to the database successfully.")
