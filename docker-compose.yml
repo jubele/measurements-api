@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: sensor_db
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PWD}
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    environment:
+      PG_USER: ${PG_USER}
+      PG_PWD: ${PG_PWD}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
