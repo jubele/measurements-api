@@ -67,3 +67,9 @@ docker-compose up --build
 
 4. **Performance test**
     Using python file `utils/perf_check_api.py` is possible to check performance of the POST requests. Test runs 10 1minute iterations using 100 concurrent requests
+
+    Local results
+    |logging level| Average/min | Min | max |
+    |---|---|---|---|
+    |WARN|150270|135000|161300|
+    |INFO|130160|120800|134900|

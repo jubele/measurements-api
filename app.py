@@ -4,7 +4,7 @@ from api import setup_routes
 from db import init_db, close_db
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARN)
 
 async def init_app(measurement_types):
     app = web.Application()

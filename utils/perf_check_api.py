@@ -45,7 +45,7 @@ def main():
         successfull_requests.append(total_requests)
     print(f"Results of requests per minute\n\
         Average: {sum(successfull_requests)/len(successfull_requests)}\n\
-        Min: {min(successfull_requests)}\nMax:{successfull_requests}")
+        Min: {min(successfull_requests)}\nMax:{max(successfull_requests)}")
 
 if __name__ == '__main__':
     main()
